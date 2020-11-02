@@ -37,3 +37,8 @@ h1 {
     width: 800px;
     
 }
+#startButton {
+    padding: 30px 64px;
+    font-size: 32px;
+    display: inline-block;
+}
