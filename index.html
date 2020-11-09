@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tron Like</title>
+    <title>Glow Cycle</title>
     <link rel="stylesheet" href="resources\style.css" type="text/css">
     <img src="resources\Images\Tron_Video_Game._Lightcycles.png" class="image" width= "50%" height="635"> <!--placeholder image-->
 </head>
@@ -12,10 +12,15 @@
 <body>
     <div class="container">
         <div id="menu">
-            <h1>Tron Like</h1>
-            <!--start button-->
-            <h1><button onclick="startGame()" id="startButton">Start</button>  </h1>
+            <h1><button type="button" id="startButton">Start</button></h1>
         </div>
+        <div id="selectBike">
+            <button onclick="startGame()" id="bike1Choice1"><b>Bike 1</b></button>
+            <button onclick="startGame()" id="bike1Choice2"><b>Bike 2</b></button>
+            <button onclick="startGame()" id="bike1Choice3"><b>Bike 3</b></button>
+            <button onclick="startGame()" id="bike1Choice4"><b>Bike 4</b></button>
+        </div>
+        
 <canvas id="troncanvas"></canvas>
 
     </div>
