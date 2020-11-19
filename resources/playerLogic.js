@@ -17,6 +17,8 @@ class Player{
 
 Player.allInstances = [];
 
+
+//should get the properties of the choosen bike
 let p1 = new Player();
 let p2 = new Player();
 let p3 = new Player();

@@ -24,6 +24,9 @@ function draw(){
                outcome = 'Draw!';
           }
      }
+}
+
+const game = setInterval(draw, 100);
 
      Player.allInstances.forEach(p => {
           if (p.key) {
