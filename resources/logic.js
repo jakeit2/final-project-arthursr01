@@ -25,3 +25,5 @@ function draw(){
           }
      }
 }
+
+const game = setInterval(draw, 100);
