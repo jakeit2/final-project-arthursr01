@@ -1,19 +1,19 @@
-const startGameButton = document.getElementById("startButton");
-const welcomeScreen = document.getElementById("menu");
-const selectScreen = document.getElementById("selectBike");
+//const startGameButton = document.getElementById("startButton");
+//const welcomeScreen = document.getElementById("menu");
+//const selectScreen = document.getElementById("selectBike");
 
 // instantiate the game object
 let game;
 let outcome, winner, playerCount = Player.allInstances.length;
 const unit = 1;
 // hide gamescreen
-selectScreen.classList.add(`d-none`);
+//selectScreen.classList.add(`d-none`);
 
-startGameButton.addEventListener(`click`, function(startGameButtonEvent){
-     startGameButton.preventDefault();
-     welcomeScreen.classList.add("d-none");
-     selectScreen.classList.remove("d-none");
-})
+//startGameButton.addEventListener(`click`, function(startGameButtonEvent){
+  //   startGameButton.preventDefault();
+    // welcomeScreen.classList.add("d-none");
+    // selectScreen.classList.remove("d-none");
+//})
 
 function draw(){
      if (playerCount.allInstances.filter(p => !p.key).length == 0){

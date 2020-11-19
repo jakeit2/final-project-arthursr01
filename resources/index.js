@@ -1,4 +1,10 @@
-var startBtn = document.getElementById("startButton");
+var startBtn = document.getElementById("start");
+var pickBike = document.getElementById("selectBike")
+
+//open the menu
+startBtn.onclick = function() {
+  pickBike.style.display = "show";
+}
 
 function myFunction() {
     var c = document.getElementById("tronCanvas");
