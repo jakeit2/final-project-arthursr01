@@ -5,7 +5,7 @@ const selectScreen = document.getElementById("selectBike");
 // instantiate the game object
 let game;
 let outcome, winner, playerCount = Player.allInstances.length;
-
+const unit = 1;
 // hide gamescreen
 selectScreen.classList.add(`d-none`);
 
@@ -24,4 +24,22 @@ function draw(){
                outcome = 'Draw!';
           }
      }
+
+     Player.allInstances.forEach(p => {
+          if (p.key) {
+            p.direction = p.key;
+
+            if (!p.dead) {
+               if (p.direction == "LEFT") p.x -= unit;
+               if (p.direction == "UP") p.y -= unit;
+               if (p.direction == "RIGHT") p.x += unit;
+               if (p.direction == "DOWN") p.y += unit;
+             }
+          
+          }
+     })
+     
+
 }
+
+game = setInterval(draw, 100);
