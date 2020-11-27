@@ -1,6 +1,7 @@
 //const startGameButton = document.getElementById("startButton");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
+const endgameResults = document.getElementById("gameHistoryResults");
 
 // instantiate the game object
 let game;
@@ -15,7 +16,7 @@ const unit = 1;
     // selectScreen.classList.remove("d-none");
 //})
 
-function draw(){
+function determineWinner(){
      if (playerCount.allInstances.filter(p => !p.key).length == 0){
           if(playerCount == 1) {
                const alivePlayers = Player.allInstances.filter(p => p.dead == false);
@@ -23,8 +24,15 @@ function draw(){
           } else if (playerCount == 0) {
                outcome = 'Draw!';
           }
+
+          if (outcome) {
+               createEndScreen(winner);
+               clearInterval(game);
+          }
      }
+
 }
+
 
 const game = setInterval(draw, 100);
 
@@ -48,6 +56,12 @@ const game = setInterval(draw, 100);
 game = setInterval(draw, 100);
 
 function createEndScreen(color) {
-     const resultNode = document.createElement('div');
-     
+     const resultText = document.getElementById('gameHistory');
+     resultText.innerText = outcome;
+     this.gameHistoryLog = [];
+
+     this.gameHistoryLog.push(outcome);
+     endgameResults.innerHTML = game.gameHistoryLog;
+
+
 }

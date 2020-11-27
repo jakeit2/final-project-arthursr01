@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="resources/styles/bootstrap.min.css">
     <link rel="stylesheet" href="resources\style.css" type="text/css">
     <img src="resources\Images\Tron_Video_Game._Lightcycles.png" class="image" width= "50%" height="635"> <!--placeholder image--> 
-    <script src="index.js"></script>
-    <script src="logic.js"></script>
-    <script src="playerLogic.js"></script>
+    
 </head>
 
 <body>
@@ -20,10 +18,10 @@
             <h1>Pick Your Player</h1>
         
         <div id="selectBike">
-            <button onclick="startGame()"  type="button" class="btn btn-outline-primary">Blue</button>
-            <button onclick="startGame()"  type="button" class="btn btn-outline-success">Green</button>
-            <button onclick="startGame()"  type="button" class="btn btn-outline-danger">Red</button>
-            <button onclick="startGame()"  type="button" class="btn btn-outline-warning">Yellow</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-primary">Blue</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-success">Green</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-danger">Red</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-warning">Yellow</button>
         </div> 
         </div>
         
@@ -32,8 +30,13 @@
         </div>
 <canvas id="troncanvas"></canvas>
 
+        <h2 id="gameHistory"></h2>
+        <p id="gameHistoryResults"></p>
+
     </div>
-   
+   <script src="index.js"></script>
+    <script src="logic.js"></script>
+    <script src="playerLogic.js"></script>
 </body>
 
 <footer>

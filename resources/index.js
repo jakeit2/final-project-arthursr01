@@ -11,10 +11,7 @@ function myFunction() {
     
   }
 
-  function startGame(){
-    startBtn.style.display = 'none';
-    
-  }
+
   function controlPlayer1(){
     switch(e.keyCode) {
       case 65:
