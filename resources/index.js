@@ -13,12 +13,6 @@ function myFunction() {
 
   function startGame(){
     startBtn.style.display = 'none';
-    window.addEventListener("DOMContentLoaded", event => {
-      const audio = document.querySelector("audio");
-      audio.volume = 0.2;
-      audio.play();
-    });
-    
     
   }
   function controlPlayer1(){
