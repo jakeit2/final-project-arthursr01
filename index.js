@@ -3,20 +3,21 @@ var startBtn = document.getElementById("startButton");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
 const endgameResults = document.getElementById("gameHistoryResults");
-
+var yellowBike = document.getElementById("image1")
 let outcome, winner, playerCount = Player.allInstances.length;
-const unit = 1;
+const unit = 15;
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
 class Player{
-  constructor(pos1, pos2, bikeColorChoice) {
-      this.bikeColorChoice = color || '#fff';
+  constructor(pos1, pos2, image) {
+      this.color = color || "#fff";
       this.pos1 = pos1;
       this.pos2 = pos2;
       this.dead = false;
       this.direction = '';
       this.key = "";
+      this.image = image;
 
 
       this.constructor.counter = (this.constructor.counter || 0) + 1;
@@ -61,8 +62,9 @@ function myFunction() {
       var blueBike = document.getElementById("blue");
 
 
-    
+  
   }
+  /*
   function setKey(key, player, up, right, down, left) {
     switch (key) {
       case up:
@@ -102,6 +104,53 @@ function myFunction() {
   }
 
 document.addEventListener('keydown', handleKeyPress);
+*/
+
+function leftArrowPressed() {
+  var element = document.getElementById("image1");
+  element.style.left = parseInt(element.style.left) - 5 + 'px';
+  }
+
+  function rightArrowPressed() {
+  var element = document.getElementById("image1");
+  element.style.left = parseInt(element.style.left) + 5 + 'px';
+
+  }
+
+  function upArrowPressed() {
+  var element = document.getElementById("image1");
+  element.style.top = parseInt(element.style.top) - 5 + 'px';
+  }
+
+  function downArrowPressed() {
+  var element = document.getElementById("image1");
+  element.style.top = parseInt(element.style.top) + 5 + 'px';
+  }
+
+  function moveSelection(evt) {
+    switch (evt.keyCode) {
+        case 37:
+        leftArrowPressed();
+        break;
+        case 39:
+        rightArrowPressed();
+        break;
+        case 38:
+        upArrowPressed();
+        break;
+        case 40:
+        downArrowPressed();
+        break;
+        }
+    };
+
+function docReady()
+{
+
+  window.addEventListener('keydown', moveSelection);
+}
+
+
 
 function determineWinner(){
   if (playerCount.allInstances.filter(p => !p.key).length == 0){
@@ -121,8 +170,8 @@ function determineWinner(){
 }
 
 
-const game = setInterval(draw, 100);
-game = setInterval(draw, 100);
+//const game = setInterval(draw, 100);
+//game = setInterval(draw, 100);
 
 function createEndScreen(color) {
   const resultText = document.getElementById('gameHistory');
