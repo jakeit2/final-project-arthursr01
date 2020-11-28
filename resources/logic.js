@@ -53,7 +53,6 @@ const game = setInterval(draw, 100);
 
 
 
-
 game = setInterval(draw, 100);
 
 function createEndScreen(color) {
