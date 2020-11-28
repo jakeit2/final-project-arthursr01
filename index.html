@@ -14,29 +14,30 @@
 
 <body>
     <div class="container">
-        <div id="Menu">
+        <div id="startMenu">
+            <audio src="resources/music/bensound-dance.mp3"></audio>
             <h1>Pick Your Player</h1>
         
         <div id="selectBike">
-            <button type="button" id="blue" onClick="launchGame()" class="btn btn-outline-primary">Blue</button>
-            <button type="button" id="green" onClick="launchGame()" class="btn btn-outline-success">Green</button>
-            <button type="button" id="red" onClick="launchGame()" class="btn btn-outline-danger">Red</button>
-            <button type="button" id="yellow" onClick="launchGame()" class="btn btn-outline-warning">Yellow</button>       
-        </div>
+            <button onclick="startGame()" type="button" class="btn btn-outline-primary">Blue</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-success">Green</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-danger">Red</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-warning">Yellow</button>
+        </div> 
         </div>
         
-         <h1><button type="button" id="startButton" onClick="openMenu()" >Start</button></h1>
-            <audio src="resources/music/bensound-dance.mp3"></audio>
-            
+        <div id="start">
+         <h1><button type="button" id="startButton">Start</button></h1>
+        </div>
 <canvas id="troncanvas"></canvas>
 
         <h2 id="gameHistory"></h2>
         <p id="gameHistoryResults"></p>
 
     </div>
-   <script src="index.js"></script>
-    <script src="logic.js"></script>
-    <script src="playerLogic.js"></script>
+   <script src="resources\index.js"></script>
+    <script src="resources\logic.js"></script>
+    <script src="resources\playerLogic.js"></script>
 </body>
 
 <footer>
