@@ -5,6 +5,7 @@ function openMenu() {
   var pickBike = document.getElementById("Menu");
   if (pickBike.style.display === "none") {
     pickBike.style.display = "block";
+    startBtn.style.visibility = "hidden";
   } else {
     pickBike.style.display = "none"
   }
@@ -15,7 +16,7 @@ function myFunction() {
     
   }
 
-  function startGame(){
+  function launchGame(){
     
     
   }
