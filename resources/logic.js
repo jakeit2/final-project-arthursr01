@@ -35,24 +35,6 @@ function determineWinner(){
 
 
 const game = setInterval(draw, 100);
-
-     Player.allInstances.forEach(p => {
-          if (p.key) {
-            p.direction = p.key;
-
-            if (!p.dead) {
-               if (p.direction == "LEFT") p.x -= unit;
-               if (p.direction == "UP") p.y -= unit;
-               if (p.direction == "RIGHT") p.x += unit;
-               if (p.direction == "DOWN") p.y += unit;
-             }
-          
-          }
-     })
-     
-
-
-
 game = setInterval(draw, 100);
 
 function createEndScreen(color) {
