@@ -5,6 +5,12 @@ function openMenu() {
   var pickBike = document.getElementById("Menu");
   if (pickBike.style.display === "none") {
     pickBike.style.display = "block";
+    startBtn.style.visibility = "hidden";
+    window.addEventListener("DOMContentLoaded", event => {
+        const audio = document.querySelector("audio");
+        audio.volume = 0.2;
+        audio.play();
+      });
   } else {
     pickBike.style.display = "none"
   }
@@ -15,12 +21,7 @@ function myFunction() {
     
   }
 
-  function startGame(){
-
-    startBtn.style.display = 'none';
-    
-    
-// 42cda66ae376e38dcc3c55aa4da7b16a835d28fe
+  function launchGame(){
     
     
   }
