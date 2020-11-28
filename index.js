@@ -22,7 +22,9 @@ function myFunction() {
   }
 
   function launchGame(){
-    
+      var blueBike = document.getElementById("blue");
+
+
     
   }
   function controlPlayer1(){
