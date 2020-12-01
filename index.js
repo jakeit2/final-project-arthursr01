@@ -112,6 +112,10 @@ function determineWinner(){
        }
 
        if (outcome) {
+        function myPlay(){
+          var audio = new Audio("resources/music/Bike-Crash.mp3");
+          audio.play();
+      }
             createEndScreen(winner);
             clearInterval(game);
        }
