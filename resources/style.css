@@ -8,6 +8,11 @@ h1 {
     text-align: center;
 }
 
+#logo {
+    border-radius: 10em;
+    top: 35%;
+}
+
 #Menu {
     width: 750px;
     height: 250px;
@@ -58,11 +63,9 @@ h1 {
 .image {
     position:absolute;
     top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    left:45%;
     margin:auto;
-    border: 3px solid gold;
+    border: 3px solid black;
 }
 #troncanvas {
     padding-left: 0;
