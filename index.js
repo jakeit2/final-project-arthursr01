@@ -47,7 +47,6 @@ function openMenu() {
     pickBike.style.display = "none"
   }
 
-  
 }
 
 function myFunction() {
@@ -126,13 +125,31 @@ game = setInterval(draw, 100);
 
 function createEndScreen(color) {
   const resultText = document.getElementById('gameHistory');
+  const replayButton = document.createElement('button');
   resultText.innerText = outcome;
+  resultText.style.fontFamily = 'Time New Romans, initial';
+  resultText.style.textAlign = 'center';
+  resultText.style.textTransform = 'uppercase';
+  replayButton.innerText = 'Replay Game';
+  replayButton.style.fontFamily = 'Time New Romans, initial';
+  replayButton.style.cursor = 'pointer';
+  replayButton.onclick = resetGame;
+
   this.gameHistoryLog = [];
 
   this.gameHistoryLog.push(outcome);
   endgameResults.innerHTML = game.gameHistoryLog;
 
 
+
+}
+
+function resetGame(){
+  outcome = '';
+  winner = '';
+
+  clearInterval(game);
+  game = setInterval(draw,100);
 }
 
 
