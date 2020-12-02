@@ -3,21 +3,24 @@ var startBtn = document.getElementById("startButton");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
 const endgameResults = document.getElementById("gameHistoryResults");
-var yellowBike = document.getElementById("image1")
+
 let outcome, winner, playerCount = Player.allInstances.length;
 const unit = 15;
+const context = canvas.getContext("2d");
+var objImage= null;
+var playerSpeed = 200;
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
+
 class Player{
-  constructor(pos1, pos2, image) {
+  constructor(pos, url) {
       this.color = color || "#fff";
-      this.pos1 = pos1;
-      this.pos2 = pos2;
+      this.pos = pos;
       this.dead = false;
       this.direction = '';
       this.key = "";
-      this.image = image;
+      this.url = url;
 
 
       this.constructor.counter = (this.constructor.counter || 0) + 1;
@@ -33,6 +36,7 @@ let p1 = new Player();
 let p2 = new Player();
 let p3 = new Player();
 let p4 = new Player();
+
 
 function openMenu() {
   var pickBike = document.getElementById("Menu");
@@ -57,12 +61,14 @@ function myFunction() {
 
 
 
-  function launchGame(){
+  function startGame(){
       var blueBike = document.getElementById("blue");
 
 
-  
+
   }
+
+
   /*
   function setKey(key, player, up, right, down, left) {
     switch (key) {
@@ -104,50 +110,50 @@ function myFunction() {
 
 document.addEventListener('keydown', handleKeyPress);
 */
-
-function leftArrowPressed() {
-  var element = document.getElementById("image1");
-  element.style.left = parseInt(element.style.left) - 5 + 'px';
-  }
-
-  function rightArrowPressed() {
-  var element = document.getElementById("image1");
-  element.style.left = parseInt(element.style.left) + 5 + 'px';
-
-  }
-
-  function upArrowPressed() {
-  var element = document.getElementById("image1");
-  element.style.top = parseInt(element.style.top) - 5 + 'px';
-  }
-
-  function downArrowPressed() {
-  var element = document.getElementById("image1");
-  element.style.top = parseInt(element.style.top) + 5 + 'px';
-  }
-
-  function moveSelection(evt) {
-    switch (evt.keyCode) {
-        case 37:
-        leftArrowPressed();
-        break;
-        case 39:
-        rightArrowPressed();
-        break;
-        case 38:
-        upArrowPressed();
-        break;
-        case 40:
-        downArrowPressed();
-        break;
-        }
-    };
-
-function docReady()
-{
-
-  window.addEventListener('keydown', moveSelection);
+/*
+function init(){
+  objImage=document.getElementById("image1");				
+  objImage.style.position='relative';
+  objImage.style.left='0px';
+  objImage.style.top='0px';
 }
+
+function init(){
+  objImage=document.getElementById("image1");				
+  objImage.style.position='relative';
+  objImage.style.left='0px';
+  objImage.style.top='0px';
+}
+function getKeyAndMove(e){				
+  var key_code=e.which||e.keyCode;
+  switch(key_code){
+    case 37: //left arrow key
+      moveLeft();
+      break;
+    case 38: //Up arrow key
+      moveUp();
+      break;
+    case 39: //right arrow key
+      moveRight();
+      break;
+    case 40: //down arrow key
+      moveDown();
+      break;						
+  }
+}
+function moveLeft(){
+  objImage.style.left=parseInt(objImage.style.left)-5 +'px';
+}
+function moveUp(){
+  objImage.style.top=parseInt(objImage.style.top)-5 +'px';
+}
+function moveRight(){
+  objImage.style.left=parseInt(objImage.style.left)+5 +'px';
+}
+function moveDown(){
+  objImage.style.top=parseInt(objImage.style.top)+5 +'px';
+}
+window.onload=init;
 
 
 
@@ -171,6 +177,19 @@ function determineWinner(){
   }
 
 }
+*/
+/*
+let modifier = 5;
+window.addEventListener('keydown', (event) => {
+  objImage=document.getElementById("image1");	
+  switch (event.key) {
+    case 'ArrowUp' : objImage.top = `${parseInt(objImage.top) - modifier}px`; break;
+    case 'ArrowDown' : objImage.top = `${parseInt(objImage.top) + modifier}px`; break;
+    case 'ArrowLeft' : objImage.left = `${parseInt(objImage.left) - modifier}px`; break;
+    case 'ArrowRight' : objImage.left = `${parseInt(objImage.left) + modifier}px`; break;
+  }
+});
+*/
 
 
 //const game = setInterval(draw, 100);
