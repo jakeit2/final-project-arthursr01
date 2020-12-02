@@ -3,7 +3,7 @@ var startBtn = document.getElementById("startButton");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
 const endgameResults = document.getElementById("gameHistoryResults");
-var canvas = document.getElementById("troncanvas");
+
 
 let outcome, winner, playerCount = Player.allInstances.length;
 const unit = 15;
@@ -57,19 +57,17 @@ function openMenu() {
   }
 
 }
-
-function myFunction() {
-    var c = document.getElementById("tronCanvas");
-    
-  }
-
-
-
   function startGame(){
       var blueBike = document.getElementById("blue");
 
 
 
+  }
+function myFunction() {
+    var canvas = document.getElementById("tronCanvas");
+    getPlayableCells(canvas, unit);
+    drawBackground();
+    drawStartingPositions();
   }
 
   function getPlayableCells(canvas, unit) {
