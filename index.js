@@ -63,13 +63,13 @@ function myFunction() {
 
   function startGame(){
       var blueBike = document.getElementById("blue");
-
+    
 
 
   }
 
 
-  /*
+  
   function setKey(key, player, up, right, down, left) {
     switch (key) {
       case up:
@@ -109,8 +109,8 @@ function myFunction() {
   }
 
 document.addEventListener('keydown', handleKeyPress);
-*/
-/*
+
+
 function init(){
   objImage=document.getElementById("image1");				
   objImage.style.position='relative';
@@ -177,8 +177,7 @@ function determineWinner(){
   }
 
 }
-*/
-/*
+
 let modifier = 5;
 window.addEventListener('keydown', (event) => {
   objImage=document.getElementById("image1");	
@@ -189,7 +188,7 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowRight' : objImage.left = `${parseInt(objImage.left) + modifier}px`; break;
   }
 });
-*/
+
 
 
 //const game = setInterval(draw, 100);
@@ -220,6 +219,7 @@ function resetGame(){
   outcome = '';
   winner = '';
 
+  context.clearRect(0, 0, canvas.width, canvas.height);
   clearInterval(game);
   game = setInterval(draw,100);
 }

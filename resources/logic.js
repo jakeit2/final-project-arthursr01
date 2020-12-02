@@ -1,41 +1,29 @@
-//const startGameButton = document.getElementById("startButton");
-//const welcomeScreen = document.getElementById("menu");
-//const selectScreen = document.getElementById("selectBike");
-const endgameResults = document.getElementById("gameHistoryResults");
+function getPlayableCells(canvas, unit) {
+     let playableCells = new Set();
+     for (let i = 0; i < canvas.width / unit; i++){
+          for (let j = 0; j < canvas.height / unit; j++){
+               playableCells.add(`${i * unit}x${j * unit}y`);
+          };
+     };
+     return playableCells;
+};
 
-// instantiate the game object
-let game;
-let outcome, winner, playerCount = Player.allInstances.length;
-const unit = 1;
+let playableCells = getPlayableCells(canvas, unit);
 
-function determineWinner(){
-     if (playerCount.allInstances.filter(p => !p.key).length == 0){
-          if(playerCount == 1) {
-               const alivePlayers = Player.allInstances.filter(p => p.dead == false);
-               outcome = `Player ${alivePlayers[0].playerId} wins!`;
-          } else if (playerCount == 0) {
-               outcome = 'Draw!';
-          }
-
-          if (outcome) {
-               createEndScreen(winner);
-               clearInterval(game);
-          }
-     }
-
-}
-
-
-const game = setInterval(draw, 100);
-game = setInterval(draw, 100);
-
-function createEndScreen(color) {
-     const resultText = document.getElementById('gameHistory');
-     resultText.innerText = outcome;
-     this.gameHistoryLog = [];
-
-     this.gameHistoryLog.push(outcome);
-     endgameResults.innerHTML = game.gameHistoryLog;
-
-
-}
+function drawBackground() {
+     context.strokeStyle = '#001900';
+     for (let i = 0; i <= canvas.width / unit + 2; i += 2) {
+       for (let j = 0; j <= canvas.height / unit + 2; j += 2) {
+         context.strokeRect(0, 0, unit * i, unit * j);
+       };
+     };
+     context.strokeStyle = '#000000';
+     context.lineWidth = 2;
+     for (let i = 1; i <= canvas.width / unit; i += 2) {
+       for (let j = 1; j <= canvas.height / unit; j += 2) {
+         context.strokeRect(0, 0, unit * i, unit * j);
+       };
+     };
+     context.lineWidth = 1;
+   };
+   drawBackground();
