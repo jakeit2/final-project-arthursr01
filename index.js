@@ -63,7 +63,7 @@ function myFunction() {
 
   function startGame(){
       var blueBike = document.getElementById("blue");
-
+    
 
 
   }
@@ -178,7 +178,10 @@ function determineWinner(){
 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d7b438ffa23e829e50517e601a0f12fd14dd505e
 let modifier = 5;
 window.addEventListener('keydown', (event) => {
   objImage=document.getElementById("image1");	
@@ -220,6 +223,7 @@ function resetGame(){
   outcome = '';
   winner = '';
 
+  context.clearRect(0, 0, canvas.width, canvas.height);
   clearInterval(game);
   game = setInterval(draw,100);
 }
