@@ -13,7 +13,7 @@ var playerSpeed = 200;
 
 
 class Player{
-  constructor(pos, url) {
+  constructor(posx,posy, url) {
       this.color = color || "#fff";
       this.posx = x;
       this.posy = y;
@@ -34,10 +34,9 @@ class Player{
 
 Player.allInstances = [];
 //should get the properties of the choosen bike
-let p1 = new Player();
-let p2 = new Player();
-let p3 = new Player();
-let p4 = new Player();
+let p1 = new Player(0,0,"resources/Images/red-bike.png");
+let p2 = new Player(1,1,"resources/Images/yellow-bike.png");
+
 
 
 function openMenu() {
@@ -147,50 +146,6 @@ let playableCells = getPlayableCells(canvas, unit);
 
 document.addEventListener('keydown', handleKeyPress);
 
-
-function init(){
-  objImage=document.getElementById("image1");				
-  objImage.style.position='relative';
-  objImage.style.left='0px';
-  objImage.style.top='0px';
-}
-
-function init(){
-  objImage=document.getElementById("image1");				
-  objImage.style.position='relative';
-  objImage.style.left='0px';
-  objImage.style.top='0px';
-}
-function getKeyAndMove(e){				
-  var key_code=e.which||e.keyCode;
-  switch(key_code){
-    case 37: //left arrow key
-      moveLeft();
-      break;
-    case 38: //Up arrow key
-      moveUp();
-      break;
-    case 39: //right arrow key
-      moveRight();
-      break;
-    case 40: //down arrow key
-      moveDown();
-      break;						
-  }
-}
-function moveLeft(){
-  objImage.style.left=parseInt(objImage.style.left)-5 +'px';
-}
-function moveUp(){
-  objImage.style.top=parseInt(objImage.style.top)-5 +'px';
-}
-function moveRight(){
-  objImage.style.left=parseInt(objImage.style.left)+5 +'px';
-}
-function moveDown(){
-  objImage.style.top=parseInt(objImage.style.top)+5 +'px';
-}
-window.onload=init;
 
 let outcome, winner, playerCount = Player.allInstances.length;
 
