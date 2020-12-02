@@ -3,6 +3,7 @@ var startBtn = document.getElementById("startButton");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
 const endgameResults = document.getElementById("gameHistoryResults");
+var canvas = document.getElementById("troncanvas");
 
 let outcome, winner, playerCount = Player.allInstances.length;
 const unit = 15;
@@ -16,7 +17,10 @@ var playerSpeed = 200;
 class Player{
   constructor(pos, url) {
       this.color = color || "#fff";
-      this.pos = pos;
+      this.posx = x;
+      this.posy = y;
+      this.startX = x;
+      this.startY = y;
       this.dead = false;
       this.direction = '';
       this.key = "";
@@ -41,7 +45,7 @@ let p4 = new Player();
 function openMenu() {
   var pickBike = document.getElementById("Menu");
   if (pickBike.style.display === "none") {
-    pickBike.style.display = "block";
+    pickBike.style.display = "none";
     startBtn.style.visibility = "hidden";
     window.addEventListener("DOMContentLoaded", event => {
       const audio = document.querySelector("audio");
@@ -63,11 +67,50 @@ function myFunction() {
 
   function startGame(){
       var blueBike = document.getElementById("blue");
-    
+
 
 
   }
 
+  function getPlayableCells(canvas, unit) {
+    let playableCells = new Set();
+    for (let i = 0; i < canvas.width / unit; i++){
+         for (let j = 0; j < canvas.height / unit; j++){
+              playableCells.add(`${i * unit}x${j * unit}y`);
+         };
+    };
+    return playableCells;
+};
+
+let playableCells = getPlayableCells(canvas, unit);
+
+  function drawBackground() {
+    context.strokeStyle = '#001900';
+    for (let i = 0; i <= canvas.width / unit + 2; i += 2) {
+      for (let j = 0; j <= canvas.height / unit + 2; j += 2) {
+        context.strokeRect(0, 0, unit * i, unit * j);
+      };
+    };
+    context.strokeStyle = '#000000';
+    context.lineWidth = 2;
+    for (let i = 1; i <= canvas.width / unit; i += 2) {
+      for (let j = 1; j <= canvas.height / unit; j += 2) {
+        context.strokeRect(0, 0, unit * i, unit * j);
+      };
+    };
+    context.lineWidth = 1;
+  };
+  drawBackground();
+
+  function drawStartingPositions(players) {
+    players.forEach(p => {
+      context.fillStyle = p.color;
+      context.fillRect(p.x, p.y, unit, unit);
+      context.strokeStyle = 'black';
+      context.strokeRect(p.x, p.y, unit, unit);
+    });
+  };
+  drawStartingPositions(Player.allInstances);
 
   
   function setKey(key, player, up, right, down, left) {
