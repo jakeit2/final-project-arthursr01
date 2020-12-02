@@ -1,11 +1,9 @@
 var startBtn = document.getElementById("startButton");
+const endgameResults = document.getElementById("gameHistoryResults");
 //const startGameButton = document.getElementById("startButton");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
-const endgameResults = document.getElementById("gameHistoryResults");
-
-
-let outcome, winner, playerCount = Player.allInstances.length;
+var canvas = document.getElementById("tronCanvas");
 const unit = 15;
 const context = canvas.getContext("2d");
 var objImage= null;
@@ -60,12 +58,10 @@ function openMenu() {
   function startGame(){
       var blueBike = document.getElementById("blue");
 
-
-
   }
 function myFunction() {
-    var canvas = document.getElementById("tronCanvas");
-    getPlayableCells(canvas, unit);
+    
+    getPlayableCells(canvas);
     drawBackground();
     drawStartingPositions();
   }
@@ -109,7 +105,7 @@ let playableCells = getPlayableCells(canvas, unit);
     });
   };
   drawStartingPositions(Player.allInstances);
-
+  
   
   function setKey(key, player, up, right, down, left) {
     switch (key) {
@@ -196,7 +192,7 @@ function moveDown(){
 }
 window.onload=init;
 
-
+let outcome, winner, playerCount = Player.allInstances.length;
 
 function determineWinner(){
   if (playerCount.allInstances.filter(p => !p.key).length == 0){
