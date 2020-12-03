@@ -9,7 +9,6 @@ const unit = 15;
 const context = canvas.getContext("2d");
 var objImage = null;
 var playerSpeed = 200;
-var resetBtn = document.getElementById("endScreen");
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
