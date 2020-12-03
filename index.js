@@ -12,30 +12,28 @@ var playerSpeed = 200;
 //selectScreen.classList.add(`d-none`);
 
 
-class Player{
-  constructor(posx,posy, url) {
-      this.color = color || "#fff";
-      this.posx = x;
-      this.posy = y;
-      this.startX = x;
-      this.startY = y;
-      this.dead = false;
-      this.direction = '';
-      this.key = "";
-      this.url = url;
+class Player {
+  constructor(x, y, color) {
+    this.color = color || "#fff";
+    this.dead = false;
+    this.direction = "";
+    this.key = "";
+    this.x = x;
+    this.y = y;
+    this.startX = x;
+    this.startY = y;
 
+    this.constructor.counter = (this.constructor.counter || 0) + 1;
+    this._id = this.constructor.counter;
 
-      this.constructor.counter = (this.constructor.counter || 0) + 1;
-      this.playerId = this.constructor.counter;
-
-      Player.allInstances.push(this);
-  };
-};
+    Player.allInstances.push(this);
+  }
+}
 
 Player.allInstances = [];
-//should get the properties of the choosen bike
-let p1 = new Player(0,0,"resources/Images/red-bike.png");
-let p2 = new Player(1,1,"resources/Images/yellow-bike.png");
+
+let p1 = new Player(unit * 6, unit * 6, "#75A4FF");
+let p2 = new Player(unit * 43, unit * 43, "#FF5050");
 
 
 
@@ -60,12 +58,13 @@ function openMenu() {
   }
 function myFunction() {
   
-    drawSprites("resources/Images/yellow-bike.png", 10, 10);
+    //drawSprites("resources/Images/yellow-bike.png", 10, 10);
     getPlayableCells(canvas);
     drawBackground();
-    drawStartingPositions();
+    drawStartingPositions(Player.allInstances);
+    draw();
   }
-
+/*
 function drawSprites(url, pos1, pos2){
   var p = new Image();
   p.src = url;
@@ -73,7 +72,7 @@ function drawSprites(url, pos1, pos2){
       ctx.drawImage(img, pos1, pos2);
   });
 }
-
+*/
   function getPlayableCells(canvas, unit) {
     let playableCells = new Set();
     for (let i = 0; i < canvas.width / unit; i++){
@@ -112,7 +111,7 @@ let playableCells = getPlayableCells(canvas, unit);
       context.strokeRect(p.x, p.y, unit, unit);
     });
   };
-  drawStartingPositions(Player.allInstances);
+  
   
   
   function setKey(key, player, up, right, down, left) {
@@ -155,6 +154,34 @@ let playableCells = getPlayableCells(canvas, unit);
 
 document.addEventListener('keydown', handleKeyPress);
 
+function draw(){
+  Player.allInstances.forEach((p) => {
+    if (p.key) {
+      p.direction = p.key;
+
+      context.fillStyle = p.color;
+      context.fillRect(p.x, p.y, unit, unit);
+      context.strokeStyle = "black";
+      context.strokeRect(p.x, p.y, unit, unit);
+
+      if (!playableCells.has(`${p.x}x${p.y}y`) && p.dead === false) {
+        p.dead = true;
+        p.direction = "";
+        playerCount -= 1;
+      }
+
+      playableCells.delete(`${p.x}x${p.y}y`);
+
+      if (!p.dead) {
+        if (p.direction === "LEFT") p.x -= unit;
+        if (p.direction === "UP") p.y -= unit;
+        if (p.direction === "RIGHT") p.x += unit;
+        if (p.direction === "DOWN") p.y += unit;
+      }
+    }
+  });
+}
+
 
 let outcome, winner, playerCount = Player.allInstances.length;
 
@@ -178,7 +205,7 @@ function determineWinner(){
   }
 
 }
-
+/*
 let modifier = 5;
 window.addEventListener('keydown', (event) => {
   objImage=document.getElementById("image1");	
@@ -189,7 +216,7 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowRight' : objImage.left = `${parseInt(objImage.left) + modifier}px`; break;
   }
 });
-
+*/
 
 
 //const game = setInterval(draw, 100);
