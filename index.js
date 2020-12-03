@@ -184,10 +184,11 @@ function draw() {
 }
 
 
-let outcome, winner, playerCount = Player.allInstances.length;
+let outcome, winner
+let playerCount = Player.allInstances.length;
 
 function determineWinner() {
-  if (playerCount.allInstances.filter(p => !p.key).length == 0) {
+  if (Player.allInstances.filter(p => !p.key).length == 0) {
     if (playerCount == 1) {
       const alivePlayers = Player.allInstances.filter(p => p.dead == false);
       outcome = `Player ${alivePlayers[0].playerId} wins!`;
@@ -195,14 +196,13 @@ function determineWinner() {
       outcome = 'Draw!';
     }
 
-    if (outcome) {
-      function myPlay() {
-        var audio = new Audio("resources/music/Bike-Crash.mp3");
-        audio.play();
-      }
+    //if (outcome) {
+     // function myPlay() {
+       // var audio = new Audio("resources/music/Bike-Crash.mp3");
+       // audio.play();
+     // }
       createEndScreen(winner);
-      clearInterval(game);
-    }
+    //}
   }
 
 }
