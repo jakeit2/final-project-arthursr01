@@ -12,7 +12,6 @@ var playerSpeed = 200;
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
-
 class Player {
   constructor(x, y, color) {
     this.color = color || "#fff";
@@ -25,7 +24,7 @@ class Player {
     this.startY = y;
 
     this.constructor.counter = (this.constructor.counter || 0) + 1;
-    this._id = this.constructor.counter;
+    this.playerId = this.constructor.counter;
 
     Player.allInstances.push(this);
   }
@@ -57,7 +56,7 @@ function openMenu() {
   drawBackground();
   drawStartingPositions(Player.allInstances);
   setInterval(draw, 100);
-  determineWinner();
+  
 
 }
 function startGame() {
@@ -154,36 +153,6 @@ function handleKeyPress(event) {
 }
 
 document.addEventListener('keydown', handleKeyPress);
-
-function draw() {
-  Player.allInstances.forEach((p) => {
-    if (p.key) {
-      p.direction = p.key;
-
-      context.fillStyle = p.color;
-      context.fillRect(p.x, p.y, unit, unit);
-      context.strokeStyle = "black";
-      context.strokeRect(p.x, p.y, unit, unit);
-
-      if (!playableCells.has(`${p.x}x${p.y}y`) && p.dead === false) {
-        p.dead = true;
-        p.direction = "";
-        playerCount -= 1;
-      }
-
-      playableCells.delete(`${p.x}x${p.y}y`);
-
-      if (!p.dead) {
-        if (p.direction === "LEFT") p.x -= unit;
-        if (p.direction === "UP") p.y -= unit;
-        if (p.direction === "RIGHT") p.x += unit;
-        if (p.direction === "DOWN") p.y += unit;
-      }
-    }
-  });
-}
-
-
 let outcome, winner, playerCount = Player.allInstances.length;
 
 function determineWinner() {
@@ -209,15 +178,52 @@ function determineWinner() {
   }
 
 }
+function draw() {
+  determineWinner();
+  Player.allInstances.forEach((p) => {
+    if (p.key) {
+      p.direction = p.key;
 
-function createEndScree(color) {
+      context.fillStyle = p.color;
+      context.fillRect(p.x, p.y, unit, unit);
+      context.strokeStyle = "black";
+      context.strokeRect(p.x, p.y, unit, unit);
+
+      if (!playableCells.has(`${p.x}x${p.y}y`) && p.dead === false) {
+        p.dead = true;
+        p.direction = "";
+        playerCount -= 1;
+        determineWinner();
+      }
+
+      playableCells.delete(`${p.x}x${p.y}y`);
+
+      if (!p.dead) {
+        if (p.direction === "LEFT") p.x -= unit;
+        if (p.direction === "UP") p.y -= unit;
+        if (p.direction === "RIGHT") p.x += unit;
+        if (p.direction === "DOWN") p.y += unit;
+      }
+    }
+  });
+}
+
+
+
+
+function createEndScreen(color) {
   const resultScreen = document.createElement('div');
   const resultText = document.createElement('h1');
   const replayButton = document.createElement('button');
   resultScreen.id = 'result';
   resultScreen.style.color = color || '#fff';
+  resultScreen.style.position = 'fixed';
   resultScreen.style.top = 0;
   resultScreen.style.display = 'grid';
+  resultScreen.style.width = '100%';
+  resultScreen.style.height = '100vh';
+  resultScreen.style.justifyContent = 'center';
+  resultScreen.style.alignItems = 'center';
   resultText.innerText = outcome;
   resultText.style.fontFamily = 'Time New Romans, initial';
   resultText.style.textAlign = 'center';
@@ -234,7 +240,7 @@ function createEndScree(color) {
   this.gameHistoryLog = [];
 
   this.gameHistoryLog.push(outcome);
-  endgameResults.innerHTML = game.gameHistoryLog;
+  endgameResults.innerHTML = this.gameHistoryLog;
 
   resetGame();
 }
@@ -242,13 +248,13 @@ function createEndScree(color) {
 function resetGame() {
   const result = document.getElementById('result');
   if (result) result.remove();
-  
+
   outcome = '';
   winner = '';
 
   context.clearRect(0, 0, canvas.width, canvas.height);
-  clearInterval(game);
-  game = setInterval(draw, 100);
+  clearInterval(setInterval());
+  setInterval(draw, 100);
 }
 
 
