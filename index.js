@@ -59,11 +59,20 @@ function openMenu() {
 
   }
 function myFunction() {
-    
+  
+    drawSprites("resources/Images/yellow-bike.png", 10, 10);
     getPlayableCells(canvas);
     drawBackground();
     drawStartingPositions();
   }
+
+function drawSprites(url, pos1, pos2){
+  var p = new Image();
+  p.src = url;
+  p.addEventListener("load", function() {
+      ctx.drawImage(img, pos1, pos2);
+  });
+}
 
   function getPlayableCells(canvas, unit) {
     let playableCells = new Set();
