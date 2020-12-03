@@ -9,6 +9,7 @@ const unit = 15;
 const context = canvas.getContext("2d");
 var objImage = null;
 var playerSpeed = 200;
+var resetBtn = document.getElementById("endScreen");
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
@@ -166,6 +167,7 @@ function determineWinner() {
     }
     if (outcome) {
       createEndScreen(winner);
+
     }
 
     //if (outcome) {
@@ -209,8 +211,6 @@ function draw() {
 }
 
 
-
-
 function createEndScreen(color) {
   const resultScreen = document.createElement('div');
   const resultText = document.createElement('h1');
@@ -231,7 +231,7 @@ function createEndScreen(color) {
   replayButton.innerText = 'Replay Game';
   replayButton.style.fontFamily = 'Time New Romans, initial';
   replayButton.style.cursor = 'pointer';
-  replayButton.onclick = resetGame;
+  
 
   resultScreen.appendChild(resultText);
   resultScreen.appendChild(replayButton);
@@ -242,20 +242,21 @@ function createEndScreen(color) {
   this.gameHistoryLog.push(outcome);
   endgameResults.innerHTML = this.gameHistoryLog;
 
-  resetGame();
-}
-
-function resetGame() {
-  const result = document.getElementById('result');
-  if (result) result.remove();
-
-  outcome = '';
-  winner = '';
-
-  context.clearRect(0, 0, canvas.width, canvas.height);
   clearInterval(setInterval());
   setInterval(draw, 100);
 }
+
+//function resetGame() {
+//  const result = document.getElementById('result');
+//  if (result) result.remove();
+
+//  outcome = '';
+//  winner = '';
+
+//  context.clearRect(0, 0, canvas.width, canvas.height);
+//  clearInterval(setInterval());
+//  setInterval(draw, 100);
+//}
 
 
 
