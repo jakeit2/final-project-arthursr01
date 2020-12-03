@@ -4,6 +4,7 @@ const endgameResults = document.getElementById("gameHistoryResults");
 //const welcomeScreen = document.getElementById("menu");
 //const selectScreen = document.getElementById("selectBike");
 var canvas = document.getElementById("tronCanvas");
+canvas.style.display = "none";
 const unit = 15;
 const context = canvas.getContext("2d");
 var objImage = null;
@@ -41,6 +42,7 @@ function openMenu() {
   //var pickBike = document.getElementById("Menu");
   //if (pickBike.style.display === "none") {
     //pickBike.style.display = "none";
+    canvas.style.display = "block";
     startBtn.style.visibility = "hidden";
     window.addEventListener("DOMContentLoaded", event => {
       const audio = document.querySelector("audio");
@@ -55,15 +57,13 @@ function openMenu() {
   drawBackground();
   drawStartingPositions(Player.allInstances);
   setInterval(draw, 100);
+  determineWinner();
 
 }
 function startGame() {
   var blueBike = document.getElementById("blue");
 
 }
-
-
-
 
 /*
 function drawSprites(url, pos1, pos2){
