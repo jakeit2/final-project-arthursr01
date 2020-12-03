@@ -41,16 +41,16 @@ let p2 = new Player(unit * 43, unit * 43, "#FF5050");
 function openMenu() {
   //var pickBike = document.getElementById("Menu");
   //if (pickBike.style.display === "none") {
-    //pickBike.style.display = "none";
-    canvas.style.display = "block";
-    startBtn.style.visibility = "hidden";
-    window.addEventListener("DOMContentLoaded", event => {
-      const audio = document.querySelector("audio");
-      audio.volume = 0.2;
-      audio.play();
-    });
+  //pickBike.style.display = "none";
+  canvas.style.display = "block";
+  startBtn.style.visibility = "hidden";
+  window.addEventListener("DOMContentLoaded", event => {
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+    audio.play();
+  });
   //} else {
-    //pickBike.style.display = "none"
+  //pickBike.style.display = "none"
   //}
   //drawSprites("resources/Images/yellow-bike.png", 10, 10);
   getPlayableCells(canvas);
@@ -184,28 +184,75 @@ function draw() {
 }
 
 
-let outcome, winner
-let playerCount = Player.allInstances.length;
+let outcome, winner, playerCount = Player.allInstances.length;
 
 function determineWinner() {
   if (Player.allInstances.filter(p => !p.key).length == 0) {
     if (playerCount == 1) {
       const alivePlayers = Player.allInstances.filter(p => p.dead == false);
       outcome = `Player ${alivePlayers[0].playerId} wins!`;
+      winner = alivePlayers[0].color;
     } else if (playerCount == 0) {
       outcome = 'Draw!';
     }
+    if (outcome) {
+      createEndScreen(winner);
+    }
 
     //if (outcome) {
-     // function myPlay() {
-       // var audio = new Audio("resources/music/Bike-Crash.mp3");
-       // audio.play();
-     // }
-      createEndScreen(winner);
+    // function myPlay() {
+    // var audio = new Audio("resources/music/Bike-Crash.mp3");
+    // audio.play();
+    // }
+
     //}
   }
 
 }
+
+function createEndScree(color) {
+  const resultScreen = document.createElement('div');
+  const resultText = document.createElement('h1');
+  const replayButton = document.createElement('button');
+  resultScreen.id = 'result';
+  resultScreen.style.color = color || '#fff';
+  resultScreen.style.top = 0;
+  resultScreen.style.display = 'grid';
+  resultText.innerText = outcome;
+  resultText.style.fontFamily = 'Time New Romans, initial';
+  resultText.style.textAlign = 'center';
+  resultText.style.textTransform = 'uppercase';
+  replayButton.innerText = 'Replay Game';
+  replayButton.style.fontFamily = 'Time New Romans, initial';
+  replayButton.style.cursor = 'pointer';
+  replayButton.onclick = resetGame;
+
+  resultScreen.appendChild(resultText);
+  resultScreen.appendChild(replayButton);
+  document.querySelector('body').appendChild(resultScreen);
+
+  this.gameHistoryLog = [];
+
+  this.gameHistoryLog.push(outcome);
+  endgameResults.innerHTML = game.gameHistoryLog;
+
+  resetGame();
+}
+
+function resetGame() {
+  const result = document.getElementById('result');
+  if (result) result.remove();
+  
+  outcome = '';
+  winner = '';
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  clearInterval(game);
+  game = setInterval(draw, 100);
+}
+
+
+
 /*
 let modifier = 5;
 window.addEventListener('keydown', (event) => {
@@ -222,35 +269,4 @@ window.addEventListener('keydown', (event) => {
 
 //const game = setInterval(draw, 100);
 //game = setInterval(draw, 100);
-
-function createEndScreen(color) {
-  const resultText = document.getElementById('gameHistory');
-  const replayButton = document.createElement('button');
-  resultText.innerText = outcome;
-  resultText.style.fontFamily = 'Time New Romans, initial';
-  resultText.style.textAlign = 'center';
-  resultText.style.textTransform = 'uppercase';
-  replayButton.innerText = 'Replay Game';
-  replayButton.style.fontFamily = 'Time New Romans, initial';
-  replayButton.style.cursor = 'pointer';
-  replayButton.onclick = resetGame;
-
-  this.gameHistoryLog = [];
-
-  this.gameHistoryLog.push(outcome);
-  endgameResults.innerHTML = game.gameHistoryLog;
-
-
-
-}
-
-function resetGame() {
-  outcome = '';
-  winner = '';
-
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  clearInterval(game);
-  game = setInterval(draw, 100);
-}
-
 
