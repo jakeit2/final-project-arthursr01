@@ -33,7 +33,7 @@ class Player {
 Player.allInstances = [];
 
 let p1 = new Player(unit * 6, unit * 6, "#75A4FF");
-let p2 = new Player(unit * 43, unit * 43, "#FF5050");
+let p2 = new Player(unit * 43, unit * 30, "#FF5050");
 
 
 
