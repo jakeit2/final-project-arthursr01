@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Glow Cycle</title>
+
+    <title>Glow Cycles</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="resources/styles/bootstrap.min.css">
@@ -25,13 +26,14 @@
         <audio src="resources/music/bensound-dance.mp3"></audio>
         <div id="Menu">
             <h1>Pick Your Player</h1>
-            <div id="selectBike">
-                <button onclick="startGame()" type="button" class="btn btn-outline-primary">Blue</button>
-                <button onclick="startGame()" type="button" class="btn btn-outline-success">Green</button>
-                <button onclick="startGame()" type="button" class="btn btn-outline-danger">Red</button>
-                <button onclick="startGame()" type="button" class="btn btn-outline-warning">Yellow</button>
-            </div>
-        </div>
+        <div id="selectBike">
+            <button onclick="startGame()" type="button" class="btn btn-outline-primary">Blue</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-success">Green</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-danger">Red</button>
+            <button onclick="startGame()" type="button" class="btn btn-outline-warning">Yellow</button>
+        </div> 
+        <div id="endMenu"></div>
+        <h1>You Win!</h1>
 
         <h1><button type="button" id="startButton" onclick="openMenu()">Start</button></h1>
 
