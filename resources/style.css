@@ -67,7 +67,16 @@ h1 {
     margin:auto;
     border: 3px solid black;
 }
-#troncanvas {
+#tronCanvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+    
+}
+#tronCanvas2 {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
