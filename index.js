@@ -62,7 +62,8 @@ function myFunction() {
     getPlayableCells(canvas);
     drawBackground();
     drawStartingPositions(Player.allInstances);
-    draw();
+    setInterval(draw,100);
+
   }
 /*
 function drawSprites(url, pos1, pos2){
