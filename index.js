@@ -244,8 +244,9 @@ function createEndScreen(color) {
 
   this.gameHistoryLog.push(outcome);
   endgameResults.innerHTML = this.gameHistoryLog;
+  var stop = setInterval();
 
-  clearInterval();
+  clearInterval(stop);
 }
 
 function resetGame() {
@@ -254,8 +255,9 @@ function resetGame() {
 
   //  outcome = '';
   //  winner = '';
-
+  var reset = setInterval(draw, 100);
   context.clearRect(0, 0, canvas.width, canvas.height);
+  clearInterval(reset);
   playGame();
 }
 
