@@ -52,13 +52,17 @@ function openMenu() {
   //pickBike.style.display = "none"
   //}
   //drawSprites("resources/Images/yellow-bike.png", 10, 10);
+
+  playGame();
+
+}
+function playGame() {
   getPlayableCells(canvas);
   drawBackground();
   drawStartingPositions(Player.allInstances);
   setInterval(draw, 100);
-  
-
 }
+
 function startGame() {
   var blueBike = document.getElementById("blue");
 
@@ -230,7 +234,7 @@ function createEndScreen(color) {
   replayButton.innerText = 'Replay Game';
   replayButton.style.fontFamily = 'Time New Romans, initial';
   replayButton.style.cursor = 'pointer';
-  
+  replayButton.onclick = resetGame;
 
   resultScreen.appendChild(resultText);
   resultScreen.appendChild(replayButton);
@@ -241,28 +245,26 @@ function createEndScreen(color) {
   this.gameHistoryLog.push(outcome);
   endgameResults.innerHTML = this.gameHistoryLog;
 
-  clearInterval(setInterval());
-  setInterval(draw, 100);
+  clearInterval();
 }
 
-//function resetGame() {
-//  const result = document.getElementById('result');
-//  if (result) result.remove();
+function resetGame() {
+  const result = document.getElementById('result');
+  if (result) result.remove();
 
-//  outcome = '';
-//  winner = '';
+  //  outcome = '';
+  //  winner = '';
 
-//  context.clearRect(0, 0, canvas.width, canvas.height);
-//  clearInterval(setInterval());
-//  setInterval(draw, 100);
-//}
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  playGame();
+}
 
 
 
 /*
 let modifier = 5;
 window.addEventListener('keydown', (event) => {
-  objImage=document.getElementById("image1");	
+  objImage=document.getElementById("image1");
   switch (event.key) {
     case 'ArrowUp' : objImage.top = `${parseInt(objImage.top) - modifier}px`; break;
     case 'ArrowDown' : objImage.top = `${parseInt(objImage.top) + modifier}px`; break;
