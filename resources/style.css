@@ -86,3 +86,9 @@ h1 {
     width: 800px;
     
 }
+
+#gameHistoryResults {
+    color: white;
+    text-align: center;
+    float: right;
+}

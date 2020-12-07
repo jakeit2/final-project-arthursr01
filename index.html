@@ -4,46 +4,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Glow Cycle</title>
+    <title>Glow Cycles</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="resources/styles/bootstrap.min.css">
     <link rel="stylesheet" href="resources\style.css" type="text/css">
     <img src="logo.png" alt="" width=200 class="image">
-    
-    
+
+
 </head>
 
 <body>
-   
-        
+
+
     <div class="container">
-    <div id="logo">
-    
-    </div>
-     <embed src="resources/music/bensound-dance.mp3" loop="true" autostart="true" width="2">
-      <audio src="resources/music/bensound-dance.mp3"></audio>
+        <div id="logo">
+
+        </div>
+        <embed src="resources/music/bensound-dance.mp3" loop="true" autostart="true" width="2">
+        <audio src="resources/music/bensound-dance.mp3"></audio>
         <div id="Menu">
             <h1>Pick Your Player</h1>
+
         <div id="selectBike">
             <button onclick="startGame()" type="button" class="btn btn-outline-primary">Blue</button>
             <button onclick="startGame()" type="button" class="btn btn-outline-success">Green</button>
             <button onclick="startGame()" type="button" class="btn btn-outline-danger">Red</button>
             <button onclick="startGame()" type="button" class="btn btn-outline-warning">Yellow</button>
         </div> 
-        </div>
-        
-         <h1><button type="button" id="startButton" onclick="myFunction(), openMenu()" >Start</button></h1>
-            
-            
-            
-<canvas id="tronCanvas" width="750" height="750" style="border:1px solid #d3d3d3;"></canvas>
-<canvas id="tronCanvas2" width="750" height="750" style="border:1px solid #d3d3d3"></canvas>
 
-        <h2 id="gameHistory"></h2>
-        <p id="gameHistoryResults"></p>
+
+
+            <div id="selectBike">
+                <button onclick="startGame()" type="button" class="btn btn-outline-primary">Blue</button>
+                <button onclick="startGame()" type="button" class="btn btn-outline-success">Green</button>
+                <button onclick="startGame()" type="button" class="btn btn-outline-danger">Red</button>
+                <button onclick="startGame()" type="button" class="btn btn-outline-warning">Yellow</button>
+            </div>
+        </div>
+
+        <h1><button type="button" id="startButton" onclick="openMenu()">Start</button></h1>
+
+
+
+        <canvas id="tronCanvas" width="750" height="500" style="z-index:1;border:1px solid #d3d3d3;"></canvas>
+        <!--<canvas id="tronCanvas2" width="750" height="750" style="z-index:2;border:1px solid #d3d3d3"></canvas>-->
+
+        <p id="gameHistoryResults"><label>Game History</label></p>
 
     </div>
-   <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 <footer>
