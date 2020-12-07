@@ -9,6 +9,8 @@ const unit = 15;
 const context = canvas.getContext("2d");
 var objImage = null;
 var playerSpeed = 200;
+
+
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
@@ -56,11 +58,14 @@ function openMenu() {
   playGame();
 
 }
+
+let game = setInterval(draw,100);
+
 function playGame() {
   getPlayableCells(canvas);
   drawBackground();
   drawStartingPositions(Player.allInstances);
-  setInterval(draw, 100);
+  //setInterval(draw, 100);
 }
 
 function startGame() {
@@ -170,7 +175,7 @@ function determineWinner() {
     }
     if (outcome) {
       createEndScreen(winner);
-      clearInterval(setInterval(null));
+      clearInterval(game);
     }
 
     //if (outcome) {
@@ -257,12 +262,28 @@ function resetGame() {
   outcome = '';
   winner = '';
 
+  //startBtn.style.visibility = "inline-block";
+  
+  Player.allInstances.forEach((p) => {
+    p.x = p.startX;
+    p.y = p.startY;
+    p.dead = false;
+    p.direction = "";
+    p.key = "";
+  });
+  playerCount = Player.allInstances.length;
+  drawStartingPositions(Player.allInstances); 
+  
+  clearInterval(game);
+  game = setInterval(draw, 100);
+
   // Remove background then re-draw it
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBackground();
 
   // Reset playableCells
   playableCells = getPlayableCells(canvas, unit);
+
 }
 
 
