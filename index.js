@@ -9,10 +9,54 @@ const unit = 15;
 const context = canvas.getContext("2d");
 var objImage = null;
 var playerSpeed = 200;
-
+var p = "#ffff";
+var pickBike = document.getElementById("Menu");
 
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
+function openMenu() {
+  if (pickBike.style.display === "none") {
+  pickBike.style.display = "block";
+  
+  startBtn.style.visibility = "hidden";
+  window.addEventListener("DOMContentLoaded", event => {
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+    audio.play();
+  });
+  } else {
+  pickBike.style.display = "none"
+  }
+  //drawSprites("resources/Images/yellow-bike.png", 10, 10);
+
+ 
+}
+
+function startGame() {
+  var blueBike = document.getElementById("blue");
+  var greenBike = document.getElementById("green");
+  var redBike = document.getElementById("red");
+  var yellowBike = document.getElementById("yellow");
+  if (blueBike) {
+    p = "#0057FF";
+    pickBike.style.display = "none";
+  }
+  if (greenBike) {
+    p = "#11FF00";
+    pickBike.style.display = "none";
+  }
+  if (redBike){
+    p = "#FF0000";
+    pickBike.style.display = "none";
+  }
+  if (yellowBike) {
+    p = "#F6FF00";
+    pickBike.style.display = "none";
+  }
+  canvas.style.display = "block";
+  playGame();
+
+}
 
 class Player {
   constructor(x, y, color) {
@@ -33,31 +77,12 @@ class Player {
 }
 
 Player.allInstances = [];
-
-let p1 = new Player(unit * 6, unit * 6, "#75A4FF");
+let p1 = new Player(unit * 6, unit * 6, p);
 let p2 = new Player(unit * 43, unit * 30, "#FF5050");
 
 
 
-function openMenu() {
-  //var pickBike = document.getElementById("Menu");
-  //if (pickBike.style.display === "none") {
-  //pickBike.style.display = "none";
-  canvas.style.display = "block";
-  startBtn.style.visibility = "hidden";
-  window.addEventListener("DOMContentLoaded", event => {
-    const audio = document.querySelector("audio");
-    audio.volume = 0.2;
-    audio.play();
-  });
-  //} else {
-  //pickBike.style.display = "none"
-  //}
-  //drawSprites("resources/Images/yellow-bike.png", 10, 10);
 
-  playGame();
-
-}
 
 let game = setInterval(draw,100);
 
@@ -68,10 +93,7 @@ function playGame() {
   //setInterval(draw, 100);
 }
 
-function startGame() {
-  var blueBike = document.getElementById("blue");
 
-}
 
 /*
 function drawSprites(url, pos1, pos2){
