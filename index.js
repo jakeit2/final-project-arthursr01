@@ -170,7 +170,7 @@ function determineWinner() {
     }
     if (outcome) {
       createEndScreen(winner);
-
+      clearInterval(setInterval(null));
     }
 
     //if (outcome) {
@@ -184,7 +184,7 @@ function determineWinner() {
 
 }
 function draw() {
-  determineWinner();
+
   Player.allInstances.forEach((p) => {
     if (p.key) {
       p.direction = p.key;
@@ -208,6 +208,7 @@ function draw() {
         if (p.direction === "UP") p.y -= unit;
         if (p.direction === "RIGHT") p.x += unit;
         if (p.direction === "DOWN") p.y += unit;
+
       }
     }
   });
@@ -244,7 +245,7 @@ function createEndScreen(color) {
 
   this.gameHistoryLog.push(outcome);
   endgameResults.innerHTML = this.gameHistoryLog;
-  var stop = setInterval();
+  var stop = setInterval(null);
 
   clearInterval(stop);
 }
@@ -253,12 +254,15 @@ function resetGame() {
   const result = document.getElementById('result');
   if (result) result.remove();
 
-  //  outcome = '';
-  //  winner = '';
-  var reset = setInterval(draw, 100);
+  outcome = '';
+  winner = '';
+
+  // Remove background then re-draw it
   context.clearRect(0, 0, canvas.width, canvas.height);
-  clearInterval(reset);
-  playGame();
+  drawBackground();
+
+  // Reset playableCells
+  playableCells = getPlayableCells(canvas, unit);
 }
 
 
