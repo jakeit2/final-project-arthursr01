@@ -89,4 +89,5 @@ h1 {
 #gameHistoryResults {
     color: white;
     text-align: center;
+    float: right;
 }

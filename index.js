@@ -9,7 +9,6 @@ const unit = 15;
 const context = canvas.getContext("2d");
 var objImage = null;
 var playerSpeed = 200;
-var resetBtn = document.getElementById("endScreen");
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
 
@@ -53,13 +52,17 @@ function openMenu() {
   //pickBike.style.display = "none"
   //}
   //drawSprites("resources/Images/yellow-bike.png", 10, 10);
+
+  playGame();
+
+}
+function playGame() {
   getPlayableCells(canvas);
   drawBackground();
   drawStartingPositions(Player.allInstances);
   setInterval(draw, 100);
-  
-
 }
+
 function startGame() {
   var blueBike = document.getElementById("blue");
 
@@ -167,7 +170,7 @@ function determineWinner() {
     }
     if (outcome) {
       createEndScreen(winner);
-
+      clearInterval(setInterval(null));
     }
 
     //if (outcome) {
@@ -181,7 +184,7 @@ function determineWinner() {
 
 }
 function draw() {
-  determineWinner();
+
   Player.allInstances.forEach((p) => {
     if (p.key) {
       p.direction = p.key;
@@ -205,6 +208,7 @@ function draw() {
         if (p.direction === "UP") p.y -= unit;
         if (p.direction === "RIGHT") p.x += unit;
         if (p.direction === "DOWN") p.y += unit;
+
       }
     }
   });
@@ -231,7 +235,7 @@ function createEndScreen(color) {
   replayButton.innerText = 'Replay Game';
   replayButton.style.fontFamily = 'Time New Romans, initial';
   replayButton.style.cursor = 'pointer';
-  
+  replayButton.onclick = resetGame;
 
   resultScreen.appendChild(resultText);
   resultScreen.appendChild(replayButton);
@@ -241,29 +245,32 @@ function createEndScreen(color) {
 
   this.gameHistoryLog.push(outcome);
   endgameResults.innerHTML = this.gameHistoryLog;
+  var stop = setInterval(null);
 
-  clearInterval(setInterval());
-  setInterval(draw, 100);
+  clearInterval(stop);
 }
 
-//function resetGame() {
-//  const result = document.getElementById('result');
-//  if (result) result.remove();
+function resetGame() {
+  const result = document.getElementById('result');
+  if (result) result.remove();
 
-//  outcome = '';
-//  winner = '';
+  outcome = '';
+  winner = '';
 
-//  context.clearRect(0, 0, canvas.width, canvas.height);
-//  clearInterval(setInterval());
-//  setInterval(draw, 100);
-//}
+  // Remove background then re-draw it
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
+
+  // Reset playableCells
+  playableCells = getPlayableCells(canvas, unit);
+}
 
 
 
 /*
 let modifier = 5;
 window.addEventListener('keydown', (event) => {
-  objImage=document.getElementById("image1");	
+  objImage=document.getElementById("image1");
   switch (event.key) {
     case 'ArrowUp' : objImage.top = `${parseInt(objImage.top) - modifier}px`; break;
     case 'ArrowDown' : objImage.top = `${parseInt(objImage.top) + modifier}px`; break;
