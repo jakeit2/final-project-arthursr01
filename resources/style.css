@@ -1,0 +1,129 @@
+body {
+    background-color: black;
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+#logo {
+    border-radius: 10em;
+    top: 35%;
+    margin-right: 50%;
+}
+
+#Menu {
+    width: 750px;
+    height: 250px;
+    position: absolute;
+    border-radius: 2em;
+    top: 35%;
+    left: 25%;
+    margin-left: -25px;
+    border-color: rgb(248, 248, 248);
+    border-style: solid;
+    background-color: rgb(0, 0, 0);
+    display: none;
+
+  }
+  
+  .btn{
+      margin-left: 3%;
+      width: 90px;
+      position: relative;
+      left: 27%;
+      margin-top: 6%;
+  }
+
+
+
+
+  #startButton {
+    position: absolute;
+    border-radius: 1em;
+    top: 47%;
+    left: 43%;
+    padding: 15px 30px; 
+    overflow: hidden; 
+    transition: 0.2s all;  
+    color: #fff; 
+    text-transform: uppercase; 
+    letter-spacing: 4px;
+    background:#F4D03F; 
+    color: #000;
+    box-shadow: 0px 0px 10px #F4D03F, 0px 0px 40px#F4D03F, 0px 0px 80px #F4D03F;
+    transition-delay: 1s;  
+    padding: 30px 64px;
+    font-size: 32px;
+    display: inline-block;
+ }
+
+
+.image {
+    position:absolute;
+    top:0;
+    left:45%;
+    margin:auto;
+    border: 3px solid black;
+}
+#tronCanvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+     
+    
+}
+#tronCanvas2 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+    
+    
+}
+
+#gameHistoryResults {
+    color: white;
+    text-align: center;
+    float: right;
+    margin-left: 84%;
+    font-size: l;
+}
+
+#outcome {
+    color: white;
+    text-align: right;
+    float: right;
+}
+
+#control {
+    color: white;
+    font-size: 50%;
+    position: absolute;
+}
+
+#button {
+    position: absolute;
+    border-radius: 1em;
+    top: 47%;
+    left: 43%;
+    padding: 15px 30px; 
+    overflow: hidden; 
+    transition: 0.2s all;  
+    color: #fff; 
+    text-transform: uppercase; 
+    letter-spacing: 4px;
+    background:#F4D03F; 
+    color: #000;
+    box-shadow: 0px 0px 10px #F4D03F, 0px 0px 40px#F4D03F, 0px 0px 80px #F4D03F;
+    transition-delay: 1s;  
+    padding: 30px 64px;
+    font-size: 32px;
+}
