@@ -35,7 +35,6 @@ function openMenu() {
 function startGame() {
   var blueBike = document.getElementById("blue");
   var greenBike = document.getElementById("green");
-  var redBike = document.getElementById("red");
   var yellowBike = document.getElementById("yellow");
   if (blueBike) {
     p = "#0057FF";
@@ -43,10 +42,6 @@ function startGame() {
   }
   if (greenBike) {
     p = "#11FF00";
-    pickBike.style.display = "none";
-  }
-  if (redBike){
-    p = "#FF0000";
     pickBike.style.display = "none";
   }
   if (yellowBike) {
