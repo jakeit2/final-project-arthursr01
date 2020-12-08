@@ -34,25 +34,32 @@ function openMenu() {
  
 }
 
-function startGame() {
-  var blueBike = document.getElementById("blue");
-  var greenBike = document.getElementById("green");
-  var yellowBike = document.getElementById("yellow");
-  if (blueBike) {
-    p = "#0057FF";
-    pickBike.style.display = "none";
-  }
-  if (greenBike) {
-    p = "#11FF00";
-    pickBike.style.display = "none";
-  }
-  if (yellowBike) {
-    p = "#F6FF00";
-    pickBike.style.display = "none";
-  }
+function startGameBlue() {
+  //var blueBike = document.getElementById("blue");
+  //var greenBike = document.getElementById("green");
+  //var yellowBike = document.getElementById("yellow");
+  
+  p1.color = "#0057FF";
+  pickBike.style.display = "none";
+  
   canvas.style.display = "block";
   playGame();
 
+}
+
+function startGameGreen(){
+  
+  p1.color = "#11FF00";
+  pickBike.style.display = "none";
+  canvas.style.display = "block";
+  playGame();
+}
+
+function startGameYellow(){
+  p1.color = "#F6FF00";
+  pickBike.style.display = "none";
+  canvas.style.display = "block";
+  playGame();
 }
 
 class Player {
@@ -74,7 +81,7 @@ class Player {
 }
 
 Player.allInstances = [];
-let p1 = new Player(unit * 6, unit * 6, p);
+let p1 = new Player(unit * 6, unit * 6, "#0057FF");
 let p2 = new Player(unit * 43, unit * 30, "#FF5050");
 
 
