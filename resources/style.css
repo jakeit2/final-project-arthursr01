@@ -11,6 +11,7 @@ h1 {
 #logo {
     border-radius: 10em;
     top: 35%;
+    margin-right: 50%;
 }
 
 #Menu {
@@ -32,7 +33,7 @@ h1 {
       margin-left: 3%;
       width: 90px;
       position: relative;
-      left: 17%;
+      left: 27%;
       margin-top: 6%;
   }
 
