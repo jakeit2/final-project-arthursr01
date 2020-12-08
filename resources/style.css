@@ -32,7 +32,7 @@ h1 {
       margin-left: 3%;
       width: 90px;
       position: relative;
-      left: 25%;
+      left: 17%;
       margin-top: 6%;
   }
 
@@ -93,7 +93,7 @@ h1 {
     text-align: center;
     float: right;
     margin-left: 84%;
-    font-size: large;
+    font-size: l;
 }
 
 #outcome {
