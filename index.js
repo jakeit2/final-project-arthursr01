@@ -328,7 +328,7 @@ function resetGame() {
 
   // Reset playableCells
   playableCells = getPlayableCells(canvas, unit);
-
+  openMenu();
 }
 
 
