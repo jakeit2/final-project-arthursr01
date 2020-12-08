@@ -11,6 +11,8 @@ var objImage = null;
 var playerSpeed = 200;
 var p = "#ffff";
 var pickBike = document.getElementById("Menu");
+const volume = document.querySelector("audio").volume;
+document.querySelector("audio").volume = 0.2;
 
 // hide gamescreen
 //selectScreen.classList.add(`d-none`);
@@ -191,6 +193,8 @@ function determineWinner() {
       outcome = 'Draw!';
     }
     if (outcome) {
+      var audio = new Audio("resources/music/Bike-Crash.mp3");
+      audio.play();
       createEndScreen(winner);
       clearInterval(game);
     }
