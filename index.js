@@ -35,7 +35,6 @@ function openMenu() {
 function startGame() {
   var blueBike = document.getElementById("blue");
   var greenBike = document.getElementById("green");
-  var redBike = document.getElementById("red");
   var yellowBike = document.getElementById("yellow");
   if (blueBike) {
     p = "#0057FF";
@@ -43,10 +42,6 @@ function startGame() {
   }
   if (greenBike) {
     p = "#11FF00";
-    pickBike.style.display = "none";
-  }
-  if (redBike){
-    p = "#FF0000";
     pickBike.style.display = "none";
   }
   if (yellowBike) {
@@ -262,6 +257,23 @@ function createEndScreen(color) {
   replayButton.innerText = 'Replay Game';
   replayButton.style.fontFamily = 'Time New Romans, initial';
   replayButton.style.cursor = 'pointer';
+  replayButton.style.position = 'absolute';
+  replayButton.style.borderRadius = '1em';
+  replayButton.style.top = '69%';
+  replayButton.style.left = '35%';
+  replayButton.style.padding = '15px 30px';
+  replayButton.style.overflow = 'hidden';
+  replayButton.style.transition = '0.2s all';
+  replayButton.style.color = '#fff';
+  replayButton.style.textTransform = 'uppercase';
+  replayButton.style.letterSpacing = '4px';
+  replayButton.style.background = '#26a0da';
+  replayButton.style.color = '#000';
+  replayButton.style.boxShadow = '0px 0px 10px #26a0da, 0px 0px 40px #26a0da, 0px 0px 80px #26a0da';
+  replayButton.style.transitionDelay = '1s';
+  replayButton.style.padding = '30px 64px';
+  replayButton.style.fontSize = '32px';
+  replayButton.style.fontWeight = '6px';
   replayButton.onclick = resetGame;
 
   resultScreen.appendChild(resultText);

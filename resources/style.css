@@ -32,7 +32,7 @@ h1 {
       margin-left: 3%;
       width: 90px;
       position: relative;
-      left: 17%;
+      left: 25%;
       margin-top: 6%;
   }
 
@@ -85,10 +85,44 @@ h1 {
     display: block;
     width: 800px;
     
+    
 }
 
 #gameHistoryResults {
     color: white;
     text-align: center;
     float: right;
+    margin-left: 84%;
+    font-size: large;
+}
+
+#outcome {
+    color: white;
+    text-align: right;
+    float: right;
+}
+
+#control {
+    color: white;
+    font-size: 50%;
+    position: absolute;
+}
+
+#button {
+    position: absolute;
+    border-radius: 1em;
+    top: 47%;
+    left: 43%;
+    padding: 15px 30px; 
+    overflow: hidden; 
+    transition: 0.2s all;  
+    color: #fff; 
+    text-transform: uppercase; 
+    letter-spacing: 4px;
+    background:#F4D03F; 
+    color: #000;
+    box-shadow: 0px 0px 10px #F4D03F, 0px 0px 40px#F4D03F, 0px 0px 80px #F4D03F;
+    transition-delay: 1s;  
+    padding: 30px 64px;
+    font-size: 32px;
 }
